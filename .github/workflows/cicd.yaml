@@ -1,31 +1,32 @@
-name: Java CI-CD Pipeline
+name: Python CI/CD
 
 on:
-    push:
-          branches:
-                  - main
+  push:
+    branches:
+      - main
 
-                      pull_request:
-                            branches:
-                                    - main
+    jobs:
+      build:
+        runs-on: ubuntu-latest
 
-                            jobs:
-                                build:
+          ```
+        steps:
+            - name: Checkout Code
+                  uses: actions/checkout@v4
 
-                                      runs-on: ubuntu-latest
+                      - name: Setup Python
+                            uses: actions/setup-python@v5
+                                  with:
+                                          python-version: "3.12"
 
-                                            steps:
-                                                    - name: Checkout Repository
-                                                              uses: actions/checkout@v4
+                                              - name: Verify Python Files
+                                                    run: |
+                                                            python -m py_compile src/app.py
+                                                                  python -m py_compile test.py
 
-                                                                      - name: Setup Java
-                                                                                uses: actions/setup-java@v4
-                                                                                          with:
-                                                                                                      distribution: temurin
-                                                                                                                  java-version: '17'
+                                                                    - name: List Project Files
+                                                                          run: |
+                                                                                  ls -la
+                                                                                        find .
+                                                                                        ```
 
-                                                                                                                          - name: Build Project
-                                                                                                                                    run: mvn clean package
-
-                                                                                                                                            - name: Run Tests
-                                                                                                                                                      run: mvn test:
