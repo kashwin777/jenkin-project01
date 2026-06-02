@@ -21,12 +21,12 @@ on:
 
                                               - name: Verify Python Files
                                                     run: |
-                                                            python -m py_compile src/app.py
-                                                                  python -m py_compile test.py
+                                                            python3 -m py_compile src/app.py
+                                                                  python3 -m py_compile test.py
 
                                                                     - name: List Project Files
                                                                           run: |
                                                                                   ls -la
                                                                                         find .
                                                                                         ```
-
+                                                                          
