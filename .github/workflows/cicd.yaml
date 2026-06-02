@@ -1,4 +1,4 @@
-cat > .github/workflows/cicd.yaml <<'EOF'
+
 name: Python CI/CD
 
 on:
