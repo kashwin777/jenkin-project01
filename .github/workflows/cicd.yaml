@@ -1,32 +1,31 @@
+cat > .github/workflows/cicd.yaml <<'EOF'
 name: Python CI/CD
 
 on:
-  push:
-    branches:
-      - main
+    push:
+          branches:
+                  - main
 
-    jobs:
-      build:
-        runs-on: ubuntu-latest
+          jobs:
+              build:
+                    runs-on: ubuntu-latest
 
-          ```
-        steps:
-            - name: Checkout Code
-                  uses: actions/checkout@v4
+                          steps:
+                                  - name: Checkout Code
+                                            uses: actions/checkout@v4
 
-                      - name: Setup Python
-                            uses: actions/setup-python@v5
-                                  with:
-                                          python-version: "3.12"
+                                                    - name: Setup Python
+                                                              uses: actions/setup-python@v5
+                                                                        with:
+                                                                                    python-version: "3.12"
 
-                                              - name: Verify Python Files
-                                                    run: |
-                                                            python3 -m py_compile src/app.py
-                                                                  python3 -m py_compile test.py
+                                                                                            - name: Verify Python Files
+                                                                                                      run: |
+                                                                                                                  python3 -m py_compile src/app.py
+                                                                                                                            python3 -m py_compile test.py
 
-                                                                    - name: List Project Files
-                                                                          run: |
-                                                                                  ls -la
-                                                                                        find .
-                                                                                        ```
-                                                                          
+                                                                                                                                  - name: List Project Files
+                                                                                                                                            run: |
+                                                                                                                                                        ls -la
+                                                                                                                                                                  find .
+                                                                                                                                                                  EOF
